@@ -84,6 +84,7 @@ void handle_signal(int signum, siginfo_t *info, void *context)
     ucontext_t *ucontext = (ucontext_t *)context;
     print_registers(ucontext);
     backtrace(context);
+    // ucontext->uc_mcontext.gregs[REG_EFL] |= 0x100; // Set trap flag to single step
 
     if (mprotect(mprotect_address, 1, PROT_READ | PROT_EXEC | PROT_WRITE) == -1)
     {

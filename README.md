@@ -1,0 +1,1 @@
+A native debugger library that does not use ptrace system call
